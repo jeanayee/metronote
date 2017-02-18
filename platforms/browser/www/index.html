@@ -49,6 +49,25 @@
             <p class="event listening">Connecting to Device</p>
             <p class="event received">Device is Ready</p>
         </div>
+        <input type="range" min="10" max="200" value="60" onchange="showValue(this.value)" />
+        <span id="range">60</span>
+        <script type="text/javascript">
+        function showValue(newValue) {
+        	document.getElementById("range").innerHTML=newValue;
+        }
+        </script>
+
+        <button onclick="vibration = startVib(90)" name="starter">Start</button>
+        <button onclick="stopVib(vibration)" name="stopper">Stop</button>
+
+        <script>
+        function stopVib(vibration) {
+          clearInterval(vibration);
+        }
+        function startVib(bpm) {
+          return setInterval(function(){navigator.vibrate(200);},60/bpm*1000);
+        }
+        </script>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>

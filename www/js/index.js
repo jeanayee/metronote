@@ -35,6 +35,10 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
     },
+
+    //vib: function(bpm) {
+      //setInterval(function(){navigator.vibrate(200);},60/bpm);
+    //}
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
@@ -44,12 +48,12 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
-        var d = new Date();
-        var start = d.getTime();
-        while (d.getTime() - start < 10000) {
-          setInterval(function(){navigator.vibrate(200);},1000);
-        }
-        clearInterval();
+        // var d = new Date();
+        // var start = d.getTime();
+        // while (d.getTime() - start < 10000) {
+        //setInterval(function(){navigator.vibrate(200);},1000);
+        //}
+        //clearInterval();
 
 
         console.log('Received Event: ' + id);
