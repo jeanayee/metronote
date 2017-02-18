@@ -57,14 +57,18 @@
         }
         </script>
 
-        <button onclick="vibration = startVib(90)" name="starter">Start</button>
-        <button onclick="stopVib(vibration)" name="stopper">Stop</button>
+        <button onclick="vibration = startVib()" id="starter">Start</button>
+        <button onclick="stopVib(vibration)" id="stopper">Stop</button>
 
         <script>
+        var isVibrating = false;
         function stopVib(vibration) {
           clearInterval(vibration);
+          document.getElementById("starter").disabled = false;
         }
-        function startVib(bpm) {
+        function startVib() {
+          bpm = document.getElementById("range").innerHTML;
+          document.getElementById("starter").disabled = true;
           return setInterval(function(){navigator.vibrate(200);},60/bpm*1000);
         }
         </script>
